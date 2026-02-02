@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Print Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 { margin-bottom: 10px; }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav a {
+      text-decoration: none;
+      color: #2575fc;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .card h3 { margin: 15px 0 10px; }
+    .price { font-weight: 600; color: #2575fc; }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 18px;
+      background: #2575fc;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 14px;
+    }
+
+    .whatsapp {
+      background: #25d366;
+      margin-left: 10px;
+    }
+
+    footer {
+      background: #222;
+      color: #bbb;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Jehovah-Jireh Store</h1>
+  <p>Custom Cup Prints • Frame Prints • Epoxy Products</p>
+</header>
+
+<nav>
+  <a href="#products">Products</a>
+  <a href="#payment">Payment</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="container" id="products">
+  <h2>Our Products</h2>
+  <div class="products">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300" alt="Custom Cup Print">
+      <h3>Custom Cup Print</h3>
+      <p class="price">₹350 onwards</p>
+      <a class="btn" href="#payment">Buy Now</a>
+      <a class="btn whatsapp" href="https://wa.me/918670247231">WhatsApp</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300" alt="Frame Print">
+      <h3>Frame Print</h3>
+      <p class="price">₹450 onwards</p>
+      <a class="btn" href="#payment">Buy Now</a>
+      <a class="btn whatsapp" href="https://wa.me/918670247231">WhatsApp</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300" alt="Epoxy Product">
+      <h3>Epoxy Product</h3>
+      <p class="price">₹150 onwards</p>
+      <a class="btn" href="#payment">Buy Now</a>
+      <a class="btn whatsapp" href="https://wa.me/918670247231">WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="container" id="order">
+  <h2>Place Your Order</h2>
+  <form onsubmit="sendWhatsAppOrder(); return false;">
+    <input type="text" id="name" placeholder="Your Name" required style="width:100%;padding:10px;margin:10px 0;">
+    <input type="text" id="product" placeholder="Product Name" required style="width:100%;padding:10px;margin:10px 0;">
+    <textarea id="details" placeholder="Customization Details" style="width:100%;padding:10px;margin:10px 0;"></textarea>
+    <button class="btn" type="submit">Send Order on WhatsApp</button>
+  </form>
+</section>
+
+<section class="container" id="payment">
+  <h2>Online Payment</h2>
+  <p>You can pay securely using UPI / Google Pay / PhonePe.</p>
+  <p><strong>UPI ID:</strong> yourupi@bank</p>
+  <p>After payment, please share the screenshot on WhatsApp.</p>
+</section>
+
+<section class="container" id="contact">
+  <h2>Contact Us</h2>
+  <p>📞 WhatsApp: <strong>+91-867247231</strong></p>
+  <p>📧 Email: yourbusiness@email.com</p>
+</section>
+
+<footer>
+  <p>© 2026 Your Brand Name. All Rights Reserved.</p>
+</footer>
+
+<script>
+function sendWhatsAppOrder() {
+  const name = document.getElementById('name').value;
+  const product = document.getElementById('product').value;
+  const details = document.getElementById('details').value;
+
+  const message = `Hello, I want to place an order.%0AName: ${name}%0AProduct: ${product}%0ADetails: ${details}`;
+  window.open(`https://wa.me/91XXXXXXXXXX?text=${message}`, '_blank');
+}
+</script>
+</body>
+</html>
